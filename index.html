@@ -24,92 +24,87 @@
         @keyframes shimmer { 0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;} }
         .hero-subtitle { font-family:'Dancing Script',cursive;font-size:1.8rem;color:var(--pink-light); }
         .hero-from { display:inline-flex;align-items:center;gap:6px;background:rgba(255,105,180,0.1);border:1px solid rgba(255,105,180,0.2);border-radius:30px;padding:6px 18px;font-size:0.85rem;color:var(--pink-light); }
+        .scroll-down { text-align:center;margin-top:30px;color:rgba(255,255,255,0.4);font-size:0.8rem;letter-spacing:3px;animation:bounce 2s infinite; }
+        @keyframes bounce { 0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);} }
         
         .section { padding:50px 20px;text-align:center; }
         .section-title { font-family:'Great Vibes',cursive;font-size:2.5rem;color:var(--pink);margin-bottom:15px; }
         
-        /* LOVE CARD BUTTON */
-        .love-card-section { padding:40px 20px 60px;text-align:center; }
-        .btn { display:inline-block;padding:14px 38px;border:none;border-radius:50px;cursor:pointer;font-family:'Poppins',sans-serif;font-weight:600;font-size:0.95rem;letter-spacing:1px;transition:0.3s;margin:8px;text-decoration:none; }
+        /* Timer */
+        .reveal-section { padding:60px 20px;text-align:center;min-height:50vh;display:flex;flex-direction:column;align-items:center;justify-content:center; }
+        .countdown-number { font-family:'Playfair Display',serif;font-size:clamp(4rem,12vw,8rem);font-weight:900;color:var(--gold);text-shadow:0 0 30px rgba(255,215,0,0.5); }
+        .reveal-message { font-family:'Dancing Script',cursive;font-size:clamp(1.1rem,3.5vw,1.6rem);color:var(--pink-light);margin-top:15px;line-height:1.5;max-width:600px; }
+        
+        /* Cake */
+        #cakeCanvas { width:100%;height:400px;max-width:700px;margin:0 auto;border-radius:20px; }
+        
+        /* Stats */
+        .stats { display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin:40px 0; }
+        .stat-box { background:var(--glass);backdrop-filter:blur(10px);border:1px solid var(--glass-border);border-radius:20px;padding:25px;min-width:130px;text-align:center;transition:0.3s; }
+        .stat-box:hover { transform:translateY(-8px);border-color:var(--pink); }
+        .stat-icon { font-size:2.5rem;margin-bottom:8px; }
+        .stat-num { font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--pink); }
+        .stat-label { font-size:0.8rem;color:#aaa;margin-top:4px; }
+        
+        /* Gallery */
+        .gallery { display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin:40px 0; }
+        .polaroid { background:#fff;padding:12px 12px 40px 12px;border-radius:4px;box-shadow:0 15px 40px rgba(0,0,0,0.5);width:150px;transition:0.4s;cursor:pointer; }
+        .polaroid:nth-child(1){transform:rotate(-6deg);}.polaroid:nth-child(2){transform:rotate(4deg);}.polaroid:nth-child(3){transform:rotate(-3deg);}
+        .polaroid:hover { transform:rotate(0deg) scale(1.1)!important;box-shadow:0 25px 60px rgba(255,105,180,0.5);z-index:10; }
+        .polaroid-img { width:100%;height:100px;border-radius:2px;margin-bottom:10px;display:flex;align-items:center;justify-content:center;font-size:3rem; }
+        .pi1{background:linear-gradient(135deg,#ff9a9e,#fecfef);}.pi2{background:linear-gradient(120deg,#ffb8d0,#ffe0f0);}.pi3{background:linear-gradient(to top,#ffc0cb,#ffe4e1);}
+        .polaroid p { color:#333;font-family:'Dancing Script',cursive;font-size:1.1rem;font-weight:700; }
+        
+        /* Proposal */
+        .proposal-section { padding:50px 0; }
+        .proposal-card { background:linear-gradient(135deg,rgba(255,105,180,0.1),rgba(255,20,147,0.05));backdrop-filter:blur(20px);border:1px solid rgba(255,105,180,0.35);border-radius:30px;padding:40px 30px;max-width:550px;margin:0 auto; }
+        .big-heart { font-size:4rem;animation:heartbeat 1s infinite; }
+        @keyframes heartbeat { 0%,100%{transform:scale(1);}15%{transform:scale(1.3);}30%{transform:scale(1);}45%{transform:scale(1.2);}60%{transform:scale(1);} }
+        .proposal-card h2 { font-family:'Great Vibes',cursive;font-size:2.5rem;color:var(--pink); }
+        .proposal-card p { color:#ddd;line-height:1.7;margin:8px 0;font-size:0.9rem; }
+        
+        /* Buttons */
+        .btn { display:inline-block;padding:14px 38px;border:none;border-radius:50px;cursor:pointer;font-family:'Poppins',sans-serif;font-weight:600;font-size:0.95rem;letter-spacing:1px;transition:0.3s;margin:8px; }
+        .btn-pink { background:linear-gradient(135deg,#ff1493,#ff69b4);color:#fff;box-shadow:0 10px 30px rgba(255,105,180,0.4); }
+        .btn-pink:hover { transform:scale(1.04) translateY(-4px);box-shadow:0 20px 50px rgba(255,105,180,0.6); }
         .btn-gold { background:linear-gradient(135deg,#ffd700,#ffa500);color:#1a0030;box-shadow:0 10px 30px rgba(255,215,0,0.4);font-size:1.1rem;padding:16px 48px; }
-        .btn-gold:hover { transform:scale(1.05) translateY(-5px);box-shadow:0 20px 50px rgba(255,215,0,0.6); }
+        .btn-gold:hover { transform:scale(1.04) translateY(-4px);box-shadow:0 20px 50px rgba(255,215,0,0.6); }
         
-        /* ==================== LOVE CARD MODAL (FIXED) ==================== */
-        .love-modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-        }
-        .love-modal-overlay.active {
-            display: flex !important;
-        }
+        /* Fireworks */
+        .firework { position:fixed;width:6px;height:6px;border-radius:50%;z-index:300;pointer-events:none;animation:burst 1.5s ease-out forwards; }
+        @keyframes burst { 0%{transform:translate(0,0) scale(1);opacity:1;}100%{transform:translate(var(--dx),var(--dy)) scale(0);opacity:0;} }
         
-        .love-modal {
-            width: 600px;
-            max-width: 94vw;
-            max-height: 85vh;
-            background: #fffef8;
-            border-radius: 12px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-            position: relative;
-            overflow-y: auto;
-            animation: modalIn 0.4s ease;
-        }
+        /* LOVE CARD MODAL */
+        .love-modal-overlay { display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:9999;justify-content:center;align-items:center; }
+        .love-modal-overlay.active { display:flex!important; }
+        .love-modal { width:600px;max-width:94vw;max-height:85vh;background:#fffef8;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,0.6);position:relative;overflow-y:auto;animation:modalIn 0.4s ease; }
         @keyframes modalIn { from{opacity:0;transform:scale(0.85);} to{opacity:1;transform:scale(1);} }
-        
-        .love-modal .card-ribbon {
-            width: 100%; height: 4px;
-            background: linear-gradient(90deg, #ff69b4, #ffd700, #ff69b4);
-            position: sticky; top: 0; z-index: 2;
-        }
-        .love-modal .card-close {
-            position: absolute; top: 12px; right: 15px; z-index: 3;
-            width: 35px; height: 35px; border-radius: 50%;
-            background: #ff69b4; color: #fff; border: none;
-            cursor: pointer; font-size: 1.2rem; display: flex;
-            align-items: center; justify-content: center;
-            transition: 0.3s;
-        }
-        .love-modal .card-close:hover { background: #e8559a; transform: scale(1.1); }
-        
-        .love-modal .card-inner { display: flex; padding: 25px; }
-        .love-modal .card-photo-side { width: 44%; display: flex; flex-direction: column; align-items: center; padding-right: 18px; border-right: 1px solid #e8d0d8; }
-        .love-modal .card-photo-frame { width: 155px; height: 195px; border: 5px solid #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.2); margin-bottom: 10px; }
-        .love-modal .card-photo-frame img { width: 100%; height: 100%; object-fit: cover; }
-        .love-modal .card-photo-nav { display: flex; align-items: center; gap: 10px; margin-top: 5px; }
-        .love-modal .nav-arrow { width: 30px; height: 30px; border-radius: 50%; background: #ff69b4; color: #fff; border: none; cursor: pointer; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-        .love-modal .nav-arrow:hover { background: #e8559a; }
-        .love-modal .nav-dots { display: flex; gap: 4px; }
-        .love-modal .nav-dot { width: 6px; height: 6px; border-radius: 50%; background: #d4a0b0; cursor: pointer; transition: 0.3s; }
-        .love-modal .nav-dot.active { background: #ff69b4; width: 18px; border-radius: 10px; }
-        .love-modal .card-photo-caption { font-family: 'Dancing Script', cursive; font-size: 0.8rem; color: #6b2040; margin-top: 4px; }
-        
-        .love-modal .card-msg-side { width: 56%; padding-left: 18px; text-align: center; overflow-y: auto; max-height: 280px; }
-        .love-modal .card-msg-side h3 { font-family: 'Great Vibes', cursive; font-size: 1.5rem; color: #5a2035; margin-bottom: 4px; }
-        .love-modal .msg-line { width: 40px; height: 2px; background: linear-gradient(90deg,transparent,#d4a0b0,transparent); margin: 6px auto; }
-        .love-modal .msg-text { font-family: 'Dancing Script', cursive; font-size: 0.85rem; color: #4a1530; line-height: 1.7; white-space: pre-line; }
-        .love-modal .msg-sign { font-family: 'Dancing Script', cursive; font-size: 1.1rem; color: #6b2040; margin-top: 8px; }
-        
-        @media (max-width:650px) {
-            .love-modal .card-inner { flex-direction: column; }
-            .love-modal .card-photo-side { width: 100%; border-right: none; border-bottom: 1px solid #e8d0d8; padding: 0 0 15px; margin-bottom: 12px; }
-            .love-modal .card-msg-side { width: 100%; padding-left: 0; max-height: 220px; }
-            .love-modal .card-photo-frame { width: 120px; height: 155px; }
-        }
+        .love-modal .card-ribbon { width:100%;height:4px;background:linear-gradient(90deg,#ff69b4,#ffd700,#ff69b4);position:sticky;top:0;z-index:2; }
+        .love-modal .card-close { position:absolute;top:12px;right:15px;z-index:3;width:35px;height:35px;border-radius:50%;background:#ff69b4;color:#fff;border:none;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center; }
+        .love-modal .card-close:hover { background:#e8559a; }
+        .love-modal .card-inner { display:flex;padding:25px; }
+        .love-modal .card-photo-side { width:44%;display:flex;flex-direction:column;align-items:center;padding-right:18px;border-right:1px solid #e8d0d8; }
+        .love-modal .card-photo-frame { width:155px;height:195px;border:5px solid #fff;border-radius:6px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.2);margin-bottom:10px; }
+        .love-modal .card-photo-frame img { width:100%;height:100%;object-fit:cover; }
+        .love-modal .card-photo-nav { display:flex;align-items:center;gap:10px;margin-top:5px; }
+        .love-modal .nav-arrow { width:30px;height:30px;border-radius:50%;background:#ff69b4;color:#fff;border:none;cursor:pointer;font-size:0.8rem;display:flex;align-items:center;justify-content:center; }
+        .love-modal .nav-arrow:hover { background:#e8559a; }
+        .love-modal .nav-dots { display:flex;gap:4px; }
+        .love-modal .nav-dot { width:6px;height:6px;border-radius:50%;background:#d4a0b0;cursor:pointer;transition:0.3s; }
+        .love-modal .nav-dot.active { background:#ff69b4;width:18px;border-radius:10px; }
+        .love-modal .card-photo-caption { font-family:'Dancing Script',cursive;font-size:0.8rem;color:#6b2040;margin-top:4px; }
+        .love-modal .card-msg-side { width:56%;padding-left:18px;text-align:center;overflow-y:auto;max-height:280px; }
+        .love-modal .card-msg-side h3 { font-family:'Great Vibes',cursive;font-size:1.5rem;color:#5a2035;margin-bottom:4px; }
+        .love-modal .msg-line { width:40px;height:2px;background:linear-gradient(90deg,transparent,#d4a0b0,transparent);margin:6px auto; }
+        .love-modal .msg-text { font-family:'Dancing Script',cursive;font-size:0.85rem;color:#4a1530;line-height:1.7;white-space:pre-line; }
+        .love-modal .msg-sign { font-family:'Dancing Script',cursive;font-size:1.1rem;color:#6b2040;margin-top:8px; }
+        @media (max-width:650px) { .love-modal .card-inner{flex-direction:column;}.love-modal .card-photo-side{width:100%;border-right:none;border-bottom:1px solid #e8d0d8;padding:0 0 15px;margin-bottom:12px;}.love-modal .card-msg-side{width:100%;padding-left:0;max-height:220px;}.love-modal .card-photo-frame{width:120px;height:155px;} }
         
         /* Music */
         .music-btn { position:fixed;top:20px;right:20px;z-index:100;width:50px;height:50px;border-radius:50%;background:rgba(20,5,25,0.8);border:2px solid var(--pink);color:var(--pink);cursor:pointer;font-size:1.2rem;transition:0.3s;backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center; }
         .music-btn:hover { background:var(--pink);color:#fff; }
         .music-btn.playing { animation:pulse 2s infinite; }
         @keyframes pulse { 0%,100%{box-shadow:0 0 15px rgba(255,105,180,0.3);}50%{box-shadow:0 0 40px rgba(255,105,180,0.6);} }
-        
-        .scroll-down { text-align:center;margin-top:30px;color:rgba(255,255,255,0.4);font-size:0.8rem;letter-spacing:3px;animation:bounce 2s infinite; }
-        @keyframes bounce { 0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);} }
     </style>
 </head>
 <body>
@@ -119,16 +114,14 @@
     <audio id="bgMusic" loop preload="auto"><source src="assets/music/ishq-wala-love.mp3" type="audio/mpeg"></audio>
     <button class="music-btn" id="musicToggle">🎵</button>
 
-    <!-- ==================== LOVE CARD MODAL ==================== -->
+    <!-- LOVE CARD MODAL -->
     <div class="love-modal-overlay" id="loveModalOverlay">
-        <div class="love-modal" id="loveModal">
+        <div class="love-modal">
             <div class="card-ribbon"></div>
             <button class="card-close" onclick="closeLoveCard()">✕</button>
             <div class="card-inner">
                 <div class="card-photo-side">
-                    <div class="card-photo-frame">
-                        <img id="modalPhoto" src="" alt="Memory">
-                    </div>
+                    <div class="card-photo-frame"><img id="modalPhoto" src="" alt="Memory"></div>
                     <div class="card-photo-nav">
                         <button class="nav-arrow" onclick="prevCardPhoto()">◀</button>
                         <div class="nav-dots" id="modalDots"></div>
@@ -155,18 +148,49 @@
             <div class="scroll-down">↓ Scroll Down ↓</div>
         </div>
 
-        <!-- LOVE CARD SECTION -->
-        <div class="love-card-section">
-            <h2 class="section-title" style="font-size:2.2rem;">💌 A Special Love Card 💌</h2>
-            <p style="color:#ccc;margin-bottom:25px;font-size:1.1rem;">I made something special for you... 💕</p>
-            <button class="btn btn-gold" onclick="openLoveCard()">
-                💌 Open Your Love Card 💌
-            </button>
+        <!-- 5 SEC COUNTDOWN -->
+        <div class="reveal-section" id="revealSection">
+            <p style="color:var(--pink-light);font-size:1.1rem;margin-bottom:15px;">Something special is coming... 💫</p>
+            <div class="countdown-number" id="countdownDisplay">5</div>
+            <div class="reveal-message" id="revealMessage" style="display:none;"></div>
+            <div id="crackerStatus" style="display:none;margin-top:10px;"></div>
         </div>
-        
-        <div style="text-align:center;padding:30px;color:#aaa;font-size:0.8rem;">
-            Made with 💖 by <span style="color:var(--pink);">Jatin</span> for <span style="color:var(--pink);">Sristi</span> • 11 May 2025 🎂
+
+        <!-- 3D CAKE -->
+        <div class="section"><h2 class="section-title">🎂 Your Birthday Cake 🎂</h2><canvas id="cakeCanvas"></canvas><p style="color:#aaa;font-size:0.8rem;margin-top:5px;">Click cake for magic! 🎉</p></div>
+
+        <!-- STATS -->
+        <div class="section"><div class="stats">
+            <div class="stat-box"><div class="stat-icon">💖</div><div class="stat-num" data-target="1000">0</div><div class="stat-label">Times I Smile For You</div></div>
+            <div class="stat-box"><div class="stat-icon">💕</div><div class="stat-num" data-target="365">0</div><div class="stat-label">Days You're Special</div></div>
+            <div class="stat-box"><div class="stat-icon">💗</div><div class="stat-num" data-target="100">0</div><div class="stat-label">% My Love For You</div></div>
+        </div></div>
+
+        <!-- GALLERY -->
+        <div class="section"><div class="gallery">
+            <div class="polaroid"><div class="polaroid-img pi1">💫</div><p>My Star</p></div>
+            <div class="polaroid"><div class="polaroid-img pi2">💝</div><p>My Love</p></div>
+            <div class="polaroid"><div class="polaroid-img pi3">🌹</div><p>My Rose</p></div>
+        </div></div>
+
+        <!-- LOVE CARD BUTTON -->
+        <div class="section">
+            <h2 class="section-title" style="font-size:2rem;">💌 A Special Love Card 💌</h2>
+            <p style="color:#ccc;margin-bottom:20px;">I made something special for you... 💕</p>
+            <button class="btn btn-gold" onclick="openLoveCard()">💌 Open Your Love Card 💌</button>
         </div>
+
+        <!-- PROPOSAL -->
+        <div class="proposal-section"><div class="proposal-card">
+            <div class="big-heart">💖</div>
+            <h2>Happy Birthday, My Love!</h2>
+            <p>Sristi, tum meri zindagi ka sabse khoobsurat hissa ho. Tumhari smile meri favorite cheez hai, aur tumhari happiness meri priority. 💕</p>
+            <p>Aaj tumhara din hai — aur main chahta hoon tumhe duniya ki saari khushiyan milen. You deserve the world, my princess! 👑</p>
+            <p style="font-family:'Dancing Script',cursive;font-size:1.3rem;color:var(--pink-light);">I Love You, Sristi! 💖</p>
+            <button class="btn btn-pink" onclick="launchFireworks()">🎂 Click for Magic! 🎂</button>
+        </div></div>
+
+        <div style="text-align:center;padding:30px;color:#aaa;font-size:0.8rem;">Made with 💖 by <span style="color:var(--pink);">Jatin</span> for <span style="color:var(--pink);">Sristi</span> • 11 May 2025 🎂</div>
     </div>
 
     <script>
@@ -187,64 +211,44 @@
         // Floating Hearts
         setInterval(()=>{const h=document.createElement('div');h.className='float-heart';h.textContent=['💖','💕','💝','💗'][Math.floor(Math.random()*4)];h.style.left=Math.random()*95+'%';h.style.fontSize=(Math.random()*22+14)+'px';h.style.animationDuration=(Math.random()*6+6)+'s';document.getElementById('floatingHearts').appendChild(h);setTimeout(()=>h.remove(),10000);},500);
 
-        // ==================== LOVE CARD LOGIC ====================
-        const cardData = [
-            { photo: 'https://i.postimg.cc/CxCxfpvg/SRISTI.jpg', caption: 'My Favorite Photo 😍', title: 'You Are So Pretty! 💖', message: 'Sristi tumko pta hai ya mera fav photo hai!! I like this photo so much ❤️😍 you are so much pretty in this photo babe!! I fall in love after seeing you!! 😻💓\n\nI love you babe 💖' },
-            { photo: 'https://i.postimg.cc/66G25gxj/Whats-App-Image-2026-05-09-at-2-35-37-AM.jpg', caption: 'My Promise 🤞', title: 'I Promise You! 💕', message: 'Sristi i know I am not perfect in my life and all mera life mai bh bhut dikkat hai and all but mai promise krtha hu mai tumara sath humasa dunga!!! I am become happy after talking with you!! I want humara bond aisa ban reh !! Iove you so much sristi 😭🎀' },
-            { photo: 'https://i.postimg.cc/hPLXVmjC/Whats-App-Image-2026-05-09-at-2-35-38-AM.jpg', caption: 'Don\'t Overthink 😋', title: 'I\'m Here For You! 💖', message: 'Do not think to much bbg 😋 mai hu na sab kuch sahi hoga itna jada overthinking kon kya bol rah hai itna mt socho itna socho mt 😋❤️ sristi humm apka sath huu jada dimag kharab mt kro apna babe aisa hi tumhara birthday hai sad mt ho jada bbg' },
-            { photo: 'https://i.postimg.cc/cLdrhJt4/Whats-App-Image-2026-05-09-at-2-35-38-AM-(1).jpg', caption: 'Forever Love 💓', title: 'Until The End of Time! 💫', message: 'I will love you as long as the sun burns in the sky as long as the moon shines its light into the dark night until the raging blue oceans become calm and run dry I will love you until the end of time😻💓' },
-            { photo: 'https://i.postimg.cc/tgT70m5Q/Whats-App-Image-2026-05-09-at-2-35-39-AM.jpg', caption: 'My Peace 🦋', title: 'You Are My Sukoon! 🌸', message: 'Tum is chaotic duniya mein mera sukoon ho. Tumse mohabbat karna meri aadat nahi, balki meri rooh ka faisla hai. Jab bhi tumhari aankhon mein dekhta hoon, mujhe mera ghar aur meri khushi dikhai deti hai. 💖' },
-            { photo: 'https://i.postimg.cc/4dHdy7qW/Whats-App-Image-2026-05-09-at-2-35-39-AM-(1).jpg', caption: 'My Special Person 💝', title: 'You Changed My Life! 😭', message: 'Tum meri life ki sabse pyaari aur special person ho. Jab se tum meri life mein aayi ho, sab kuch badal gaya hai. I am really lucky to have you in my life, love you so much😭💓' },
-            { photo: 'https://i.postimg.cc/brQwHXzD/Whats-App-Image-2026-05-09-at-2-35-40-AM.jpg', caption: 'Can\'t Imagine Without You 😙', title: 'You Are My Everything! 🎀', message: 'Tumhare sath baat karke mera mood humesha sahi ho jata hai. Pata nahi maine kya achha kiya jo tum mujhe mili, par ab tumhare bina life imagine karna bhi impossible hai😙🎀' },
-            { photo: 'https://i.postimg.cc/TPzxkkNw/Whats-App-Image-2026-05-09-at-2-39-57-AM.jpg', caption: 'Made With Love 💌', title: 'For My Special One! 💎', message: 'This card made by jatin for some one special Sristi kar!!!! I love you so much sristi and I want you as partners I really moree moree love you wifey!! 😙💓' }
-        ];
-        
-        let currentCard = 0;
-        
-        function updateCardModal() {
-            const d = cardData[currentCard];
-            document.getElementById('modalPhoto').src = d.photo;
-            document.getElementById('modalCaption').textContent = d.caption;
-            document.getElementById('modalTitle').textContent = d.title;
-            document.getElementById('modalMessage').textContent = d.message;
-            
-            const dots = document.getElementById('modalDots');
-            dots.innerHTML = '';
-            for (let i = 0; i < cardData.length; i++) {
-                const dot = document.createElement('div');
-                dot.className = 'nav-dot' + (i === currentCard ? ' active' : '');
-                dot.onclick = () => { currentCard = i; updateCardModal(); };
-                dots.appendChild(dot);
-            }
-        }
-        
-        function openLoveCard() {
-            document.getElementById('loveModalOverlay').classList.add('active');
-            currentCard = 0;
-            updateCardModal();
-        }
-        
-        function closeLoveCard() {
-            document.getElementById('loveModalOverlay').classList.remove('active');
-        }
-        
-        function nextCardPhoto() { currentCard = (currentCard + 1) % cardData.length; updateCardModal(); }
-        function prevCardPhoto() { currentCard = (currentCard - 1 + cardData.length) % cardData.length; updateCardModal(); }
-        
-        // Close on overlay click
-        document.getElementById('loveModalOverlay').addEventListener('click', function(e) {
-            if (e.target === this) closeLoveCard();
-        });
-        
-        // Keyboard
-        document.addEventListener('keydown', function(e) {
-            const overlay = document.getElementById('loveModalOverlay');
-            if (overlay.classList.contains('active')) {
-                if (e.key === 'Escape') closeLoveCard();
-                if (e.key === 'ArrowRight') nextCardPhoto();
-                if (e.key === 'ArrowLeft') prevCardPhoto();
-            }
-        });
+        // ==================== 5 SEC COUNTDOWN ====================
+        const YOUR_MESSAGE="Sristi i know I am not perfect in my life and all mera life mai bh bhut dikkat hai and all but mai promise krtha hu mai tumara sath humasa dunga!!! I am become happy after talking with you!! I want humara bond aisa ban reh !! Iove you so much sristi 😭🎀";
+        let cd=5,cdStarted=false;
+        function startCountdown(){if(cd>0){document.getElementById('countdownDisplay').textContent=cd;cd--;setTimeout(startCountdown,1000);}else{document.getElementById('countdownDisplay').style.display='none';document.getElementById('revealMessage').style.display='block';document.getElementById('revealMessage').textContent=YOUR_MESSAGE;document.getElementById('crackerStatus').style.display='block';document.getElementById('crackerStatus').innerHTML='<p style="font-size:1.5rem;color:var(--gold);">🎆 Happy Birthday Sristi! 🎆</p>';launchFireworks();}}
+        window.addEventListener('scroll',function chk(){const rs=document.getElementById('revealSection');if(rs&&rs.getBoundingClientRect().top<window.innerHeight*0.6&&!cdStarted){cdStarted=true;startCountdown();window.removeEventListener('scroll',chk);}});
+
+        // ==================== FIREWORKS ====================
+        function launchFireworks(){for(let i=0;i<150;i++){setTimeout(()=>createFirework(Math.random()*window.innerWidth,Math.random()*window.innerHeight*0.6),i*60);}}
+        function createFirework(x,y){const colors=['#ff69b4','#ffd700','#ff1493','#00ffff','#ff4500','#d4a0ff'];for(let i=0;i<40;i++){const p=document.createElement('div');p.className='firework';const angle=(Math.PI*2/40)*i;const vel=Math.random()*160+70;p.style.cssText=`left:${x}px;top:${y}px;background:${colors[Math.floor(Math.random()*colors.length)]};--dx:${Math.cos(angle)*vel}px;--dy:${Math.sin(angle)*vel}px;`;document.body.appendChild(p);setTimeout(()=>p.remove(),2000);}}
+
+        // ==================== 3D CAKE ====================
+        const cakeCanvas=document.getElementById('cakeCanvas');
+        const hR=new THREE.WebGLRenderer({canvas:cakeCanvas,antialias:true,alpha:true});hR.setSize(cakeCanvas.parentElement.clientWidth,400);hR.setPixelRatio(Math.min(window.devicePixelRatio,2));hR.shadowMap.enabled=true;
+        const hS=new THREE.Scene();hS.background=new THREE.Color(0x0d0515);const hC=new THREE.PerspectiveCamera(45,cakeCanvas.parentElement.clientWidth/400,0.1,50);hC.position.set(0,4,12);hC.lookAt(0,1.5,0);
+        hS.add(new THREE.AmbientLight(0xfff5e6,0.4));const hkl=new THREE.DirectionalLight(0xfffaf0,2);hkl.position.set(6,11,9);hkl.castShadow=true;hS.add(hkl);
+        const cake=new THREE.Group();
+        [1.35,1.05,0.72].forEach((r,i)=>{const geo=new THREE.CylinderGeometry(r,r+0.05,1.05,60);const mat=new THREE.MeshStandardMaterial({color:0xfffef8,roughness:0.35,metalness:0.02});const tier=new THREE.Mesh(geo,mat);tier.position.y=i*1.15+0.65;tier.castShadow=true;cake.add(tier);const band=new THREE.Mesh(new THREE.TorusGeometry(r+0.02,0.05,12,60),new THREE.MeshStandardMaterial({color:0xd4a843,roughness:0.15,metalness:0.95}));band.rotation.x=Math.PI/2;band.position.y=i*1.15+1.18;cake.add(band);});
+        for(let i=0;i<7;i++){const a=(i/7)*Math.PI*2+Math.PI/14;const c=new THREE.Mesh(new THREE.CylinderGeometry(0.05,0.06,0.55,12),new THREE.MeshStandardMaterial({color:0xfffef9}));c.position.set(Math.cos(a)*0.48,3.65,Math.sin(a)*0.48);cake.add(c);const fl=new THREE.Mesh(new THREE.SphereGeometry(0.08,8,8),new THREE.MeshBasicMaterial({color:0xffaa00}));fl.position.copy(c.position);fl.position.y+=0.35;fl.userData={by:fl.position.y,ph:Math.random()*Math.PI*2};cake.add(fl);}
+        cake.position.y=0.15;hS.add(cake);
+        let hAuto=true,hTr={x:0.12,y:0.6},hCr={x:0.12,y:0.6};
+        cakeCanvas.addEventListener('click',()=>{hAuto=false;setTimeout(()=>hAuto=true,4000);cake.scale.set(1.12,1.12,1.12);setTimeout(()=>cake.scale.set(1,1,1),250);launchFireworks();});
+        function hAnim(){requestAnimationFrame(hAnim);const t=Date.now()*0.001;if(hAuto)hTr.y+=0.003;hCr.y+=(hTr.y-hCr.y)*0.03;hC.position.x=Math.sin(hCr.y)*12;hC.position.z=Math.cos(hCr.y)*12;hC.lookAt(0,1.6,0);cake.children.forEach(c=>{if(c.userData&&c.userData.by!==undefined){c.position.y=c.userData.by+Math.sin(t*10+c.userData.ph)*0.04;c.scale.setScalar(0.7+Math.sin(t*12+c.userData.ph)*0.35);}});cake.rotation.y+=0.001;hR.render(hS,hC);}hAnim();
+
+        // Stats Counter
+        const statsEl=document.querySelectorAll('.stat-num[data-target]');let statsDone=false;
+        function animStats(){statsEl.forEach(s=>{const t=parseInt(s.getAttribute('data-target')),dur=2000,step=t/(dur/16);let c=0;const u=()=>{c+=step;if(c<t){s.textContent=Math.floor(c);requestAnimationFrame(u);}else s.textContent=t;};u();});}
+        window.addEventListener('scroll',function chk(){const sec=document.querySelector('.stats');if(sec&&sec.getBoundingClientRect().top<window.innerHeight*0.8&&!statsDone){statsDone=true;animStats();window.removeEventListener('scroll',chk);}});
+
+        // ==================== LOVE CARD ====================
+        const cardData=[{photo:'https://i.postimg.cc/CxCxfpvg/SRISTI.jpg',caption:'My Favorite Photo 😍',title:'You Are So Pretty! 💖',message:'Sristi tumko pta hai ya mera fav photo hai!! I like this photo so much ❤️😍 you are so much pretty in this photo babe!! I fall in love after seeing you!! 😻💓\n\nI love you babe 💖'},{photo:'https://i.postimg.cc/66G25gxj/Whats-App-Image-2026-05-09-at-2-35-37-AM.jpg',caption:'My Promise 🤞',title:'I Promise You! 💕',message:'Sristi i know I am not perfect in my life and all mera life mai bh bhut dikkat hai and all but mai promise krtha hu mai tumara sath humasa dunga!!! I am become happy after talking with you!! I want humara bond aisa ban reh !! Iove you so much sristi 😭🎀'},{photo:'https://i.postimg.cc/hPLXVmjC/Whats-App-Image-2026-05-09-at-2-35-38-AM.jpg',caption:'Don\'t Overthink 😋',title:'I\'m Here For You! 💖',message:'Do not think to much bbg 😋 mai hu na sab kuch sahi hoga itna jada overthinking kon kya bol rah hai itna mt socho itna socho mt 😋❤️ sristi humm apka sath huu jada dimag kharab mt kro apna babe aisa hi tumhara birthday hai sad mt ho jada bbg'},{photo:'https://i.postimg.cc/cLdrhJt4/Whats-App-Image-2026-05-09-at-2-35-38-AM-(1).jpg',caption:'Forever Love 💓',title:'Until The End of Time! 💫',message:'I will love you as long as the sun burns in the sky as long as the moon shines its light into the dark night until the raging blue oceans become calm and run dry I will love you until the end of time😻💓'},{photo:'https://i.postimg.cc/tgT70m5Q/Whats-App-Image-2026-05-09-at-2-35-39-AM.jpg',caption:'My Peace 🦋',title:'You Are My Sukoon! 🌸',message:'Tum is chaotic duniya mein mera sukoon ho. Tumse mohabbat karna meri aadat nahi, balki meri rooh ka faisla hai. 💖'},{photo:'https://i.postimg.cc/4dHdy7qW/Whats-App-Image-2026-05-09-at-2-35-39-AM-(1).jpg',caption:'My Special Person 💝',title:'You Changed My Life! 😭',message:'Tum meri life ki sabse pyaari aur special person ho. Jab se tum meri life mein aayi ho, sab kuch badal gaya hai. I am really lucky, love you so much😭💓'},{photo:'https://i.postimg.cc/brQwHXzD/Whats-App-Image-2026-05-09-at-2-35-40-AM.jpg',caption:'Can\'t Imagine Without You 😙',title:'You Are My Everything! 🎀',message:'Tumhare sath baat karke mera mood humesha sahi ho jata hai. Pata nahi maine kya achha kiya jo tum mujhe mili, par ab tumhare bina life impossible hai😙🎀'},{photo:'https://i.postimg.cc/TPzxkkNw/Whats-App-Image-2026-05-09-at-2-39-57-AM.jpg',caption:'Made With Love 💌',title:'For My Special One! 💎',message:'This card made by jatin for some one special Sristi kar!!!! I love you so much sristi and I want you as partners I really moree moree love you wifey!! 😙💓'}];
+        let currentCard=0;
+        function updateCardModal(){const d=cardData[currentCard];document.getElementById('modalPhoto').src=d.photo;document.getElementById('modalCaption').textContent=d.caption;document.getElementById('modalTitle').textContent=d.title;document.getElementById('modalMessage').textContent=d.message;const dots=document.getElementById('modalDots');dots.innerHTML='';for(let i=0;i<cardData.length;i++){const dot=document.createElement('div');dot.className='nav-dot'+(i===currentCard?' active':'');dot.onclick=()=>{currentCard=i;updateCardModal();};dots.appendChild(dot);}}
+        function openLoveCard(){document.getElementById('loveModalOverlay').classList.add('active');currentCard=0;updateCardModal();}
+        function closeLoveCard(){document.getElementById('loveModalOverlay').classList.remove('active');}
+        function nextCardPhoto(){currentCard=(currentCard+1)%cardData.length;updateCardModal();}
+        function prevCardPhoto(){currentCard=(currentCard-1+cardData.length)%cardData.length;updateCardModal();}
+        document.getElementById('loveModalOverlay').addEventListener('click',function(e){if(e.target===this)closeLoveCard();});
+        document.addEventListener('keydown',function(e){if(document.getElementById('loveModalOverlay').classList.contains('active')){if(e.key==='Escape')closeLoveCard();if(e.key==='ArrowRight')nextCardPhoto();if(e.key==='ArrowLeft')prevCardPhoto();}});
 
         // Music
         const audio=document.getElementById('bgMusic'),mt=document.getElementById('musicToggle');
@@ -252,7 +256,7 @@
         mt.addEventListener('click',()=>{if(audio.paused){audio.play();mt.classList.add('playing');}else{audio.pause();mt.classList.remove('playing');}});
         document.addEventListener('click',startM,{once:true});
 
-        window.addEventListener('resize',()=>{camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight);});
+        window.addEventListener('resize',()=>{const w=cakeCanvas.parentElement.clientWidth;hC.aspect=w/400;hC.updateProjectionMatrix();hR.setSize(w,400);camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight);});
     </script>
 </body>
 </html>
